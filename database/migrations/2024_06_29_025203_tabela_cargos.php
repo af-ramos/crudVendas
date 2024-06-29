@@ -11,17 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('cargos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome', 30);
-            $table->string('documento', 14);
-            $table->string('telefone', 11)->nullable();
-            $table->string('usuario', 20);
-            $table->string('senha', 20);
-            $table->unsignedBigInteger('cargo');
+            $table->string('descricao', 20);
             $table->timestamps();
-
-            $table->foreign('cargo')->references('id')->on('cargos');
         });
     }
 
