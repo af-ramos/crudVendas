@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\RedirectController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/', RedirectController::class . '@redirect')->name('redirect');
 Route::get('/', function () {
     return view('login');
+});
+
+Route::prefix('usuarios')->group(function () {
+    Route::get('/mostrar', UsuarioController::class . '@mostrar')->name('usuarios.mostrar');
+    Route::post('/criar', UsuarioController::class . '@criar')->name('usuarios.criar');
+    Route::get('/telaAtualizar/{id}', UsuarioController::class . '@telaAtualizar')->name('usuarios.telaAtualizar');
+    Route::put('/atualizar/{id}', UsuarioController::class . '@atualizar')->name('usuarios.atualizar');
 });
