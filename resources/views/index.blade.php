@@ -13,7 +13,7 @@
     <body>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Projeto de Vendas HCosta</a>
+                <a class="navbar-brand" href="{{ route('index') }}">Projeto de Vendas HCosta</a>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link {{$tela == 'pedidos' ? 'active' : ''}}" href="#">Pedidos</a>
