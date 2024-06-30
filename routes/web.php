@@ -28,4 +28,5 @@ Route::prefix('usuarios')->group(function () {
     Route::get('/telaAtualizar/{id}', UsuarioController::class . '@telaAtualizar')->name('usuarios.telaAtualizar');
     Route::put('/atualizar/{id}', UsuarioController::class . '@atualizar')->name('usuarios.atualizar');
     Route::get('/sair', UsuarioController::class . '@sair')->name('usuarios.sair');
+    Route::delete('/remover/{id}', UsuarioController::class . '@remover')->name('usuarios.remover');
 });

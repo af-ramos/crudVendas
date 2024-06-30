@@ -82,4 +82,9 @@ class UsuarioController extends Controller
             'tela' => 'usuarios'
         ]);
     }
+
+    public function remover(Request $request) {
+        Usuario::destroy($request->route('id'));
+        return redirect()->route('usuarios.mostrar');
+    }
 }
