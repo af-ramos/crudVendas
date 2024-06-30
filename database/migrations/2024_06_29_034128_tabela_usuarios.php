@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('documento', 14);
             $table->string('telefone', 11)->nullable();
             $table->string('usuario', 20);
-            $table->string('senha', 20);
+            $table->string('senha', 256);
             $table->unsignedBigInteger('cargo');
             $table->timestamps();
 

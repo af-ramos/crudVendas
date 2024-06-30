@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class UsuariosSeeder extends Seeder
 {
@@ -18,7 +19,7 @@ class UsuariosSeeder extends Seeder
             'documento' => '12345678910',
             'telefone' => '98654321234',
             'usuario' => 'a',
-            'senha' => 'a',
+            'senha' => Hash::make('a'),
             'cargo' => '2',
             'created_at' => Carbon::now(), 
             'updated_at' => Carbon::now()

@@ -7,17 +7,17 @@ use App\Models\Usuario;
 use Carbon\Carbon;
 use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
     public function entrar(Request $request) {
-        $retornoUsuario = Usuario::where([
+        $retorno_usuario = Usuario::where([
             'usuario' => $request->usuario,
-            'senha' => $request->senha
-        ])->get();
+        ])->first();
 
-        if ($retornoUsuario->count() > 0) {
-            $request->session()->put('id', $retornoUsuario->first()->id);
+        if ($retorno_usuario->count() > 0 && Hash::check($request->senha, $retorno_usuario->senha)) {
+            $request->session()->put('id', $retorno_usuario->id);
             return redirect()->route('index');
         }
     }
@@ -33,7 +33,7 @@ class UsuarioController extends Controller
             'documento' => $request->documento,
             'telefone' => $request->telefone,
             'usuario' => $request->usuario,
-            'senha' => $request->senha,
+            'senha' => Hash::make($request->senha),
             'cargo' => 1
         ]);
 
@@ -47,7 +47,7 @@ class UsuarioController extends Controller
             'documento' => $request->documento,
             'telefone' => $request->telefone,
             'usuario' => $request->usuario,
-            'senha' => $request->senha,
+            'senha' => Hash::make($request->senha),
             'cargo' => $request->cargo
         ]);
 
