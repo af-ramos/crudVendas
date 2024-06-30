@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cargo;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redis;
 
 class UsuarioController extends Controller
 {
@@ -56,6 +56,7 @@ class UsuarioController extends Controller
         return view('usuarios.atualizar', [
             'usuario' => Usuario::where('id', $request->session()->get('id'))->get()->first(),
             'usuario_edicao' => Usuario::where('id', $request->route('id'))->get()->first(),
+            'cargos' => Cargo::all(),
             'tela' => 'atualizar'
         ]);
     }
