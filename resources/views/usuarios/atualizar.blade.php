@@ -1,7 +1,7 @@
 @extends('index')
 @section('content')
         <h2> ATUALIZAR </h2>
-        <form action="{{ route('usuarios.atualizar', ['id' => $usuario->id]) }}" method="POST">
+        <form action="{{ route('usuarios.atualizar', ['id' => $usuario_edicao->id]) }}" method="POST">
             @method('PUT')
             @csrf
 
