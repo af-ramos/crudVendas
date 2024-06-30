@@ -54,7 +54,8 @@ class UsuarioController extends Controller
 
     public function telaAtualizar(Request $request) {
         return view('usuarios.atualizar', [
-            'usuario' => Usuario::where('id', $request->route('id'))->get()->first(),
+            'usuario' => Usuario::where('id', $request->session()->get('id'))->get()->first(),
+            'usuario_edicao' => Usuario::where('id', $request->route('id'))->get()->first(),
             'tela' => 'atualizar'
         ]);
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 
 class RedirectController extends Controller
@@ -12,5 +13,12 @@ class RedirectController extends Controller
         }
 
         return (new UsuarioController())->login($request);
+    }
+
+    public function index(Request $request) {
+        return view('index', [
+            'usuario' => Usuario::where('id', $request->session()->get('id'))->get()->first(), 
+            'tela' => 'index'
+        ]);
     }
 }
