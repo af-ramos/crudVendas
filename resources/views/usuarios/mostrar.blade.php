@@ -1,6 +1,6 @@
 @extends('index')
 @section('content')
-	<h2> USUÁRIOS </h2>
+	<p class="titulo mt-4"> LISTA DE USUÁRIOS </p>
 
 	<div class='m-3'>
 		<table id="tabela-usuarios" class="cell-border stripe">
