@@ -24,7 +24,7 @@
                             @if($usuario->cargo != 2)
                                 <input type="hidden" name="status" value="{{ $p->status }}">
                             @endif
-                            <select class="form-select" name="status" onchange="alterarStatus('{{ $p->id }}', this)" $usuario->cargo != 2 ? 'disabled' : '' }}>
+                            <select class="form-select" name="status" onchange="alterarStatus('{{ $p->id }}', this)" {{ $usuario->cargo != 2 ? 'disabled' : '' }}>
                                 @foreach ($status as $s)
                                     <option value="{{ $s->id }}" {{$p->status == $s->id ? 'selected' : ''}}> {{ $s->descricao }} </option>
                                 @endforeach
