@@ -16,12 +16,11 @@ class PedidoController extends Controller
     }
 
     public function telaCriar(Request $request) {
-        $retornoProdutos = Http::get(env('API_VENDAS') . '/getItens');
-
-        info($retornoProdutos);
+        $retornoProdutos = json_decode(Http::get(env('API_VENDAS') . '/getItens')->body());
 
         return view('pedidos.criar', [
             'usuario' => Usuario::where('id', $request->session()->get('id'))->get()->first(),
+            'produtos' => $retornoProdutos,
             'tela' => 'pedidos'
         ]);
     }

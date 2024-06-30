@@ -48,6 +48,7 @@ label[for=dt-length-0] {
     margin-left: 8px;
 }
 
-#tabela-usuarios th, #tabela-usuarios td {
+#tabela-usuarios th, #tabela-usuarios td, 
+#tabela-produtos th, #tabela-produtos td {
     text-align: center;
 }
