@@ -21,7 +21,7 @@
                             <td> {{$p->id}} </td>
                             <td> {{$p->descricao}} </td>
                             <td> 
-                                <div class="input-group mb-3">
+                                <div class="input-group">
                                     <span class="input-group-text"> R$ </span>
                                     <input type="hidden" value="{{ $p->valor }}" name="prod_{{ $p->id }}[valor]">
                                     <input type="text" class="form-control" value="{{$p->valor_formatado}}" readonly>
@@ -33,13 +33,13 @@
                 </tbody>
             </table>
 
-            <div class='d-grid gap-2'>
+            <div class='d-grid gap-2 mt-3'>
                 <button type='submit' class='btn btn-primary btn-lg botao'> FAZER PEDIDO </button>
             </div>
         </form>
 
-        <div class='d-grid gap-2'>
-            <a href="{{ route('pedidos.mostrar') }}" class='btn btn-danger btn-lg botao mt-3'> VOLTAR </a>
+        <div class='d-grid gap-2 mt-3'>
+            <a href="{{ route('pedidos.mostrar') }}" class='btn btn-danger btn-lg botao'> VOLTAR </a>
         </div>
     </div>
 
