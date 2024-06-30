@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class RedirectController extends Controller
 {
     public function redirecionar(Request $request) {
-        if ($request->acao == 'Cadastrar') {
+        if ($request->acao == 'CADASTRAR') {
             return view('usuarios.criar');
         }
 
