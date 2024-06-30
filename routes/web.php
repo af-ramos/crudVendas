@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/', RedirectController::class . '@redirect')->name('redirect');
+Route::post('/redirect', RedirectController::class . '@redirect')->name('redirect');
+Route::get('/index', RedirectController::class . '@index')->name('index');
 Route::get('/', function () {
     return view('login');
 });
