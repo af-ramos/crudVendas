@@ -30,4 +30,9 @@ class PedidoController extends Controller
             'tela' => 'pedidos'
         ]);
     }
+
+    public function criar(Request $request) {
+        info('teste');
+        info($request->all());
+    }
 }

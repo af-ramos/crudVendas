@@ -40,5 +40,9 @@
                 <input type="submit" value="ATUALIZAR" class='btn btn-success btn-lg mt-3 botao'>
             </div>
         </form>
+
+        <div class='d-grid gap-2'>
+            <a href="{{ route('index') }}" class='btn btn-danger btn-lg botao mt-3'> VOLTAR </a>
+        </div>
     </div>
 @stop

@@ -34,7 +34,7 @@ Route::prefix('usuarios')->group(function () {
 });
 
 Route::prefix('pedidos')->group(function () {
-    Route::get('/telaCriar', PedidoController::class . '@telaCriar')->name('pedidos.telaCriar');
     Route::get('/mostrar', PedidoController::class . '@mostrar')->name('pedidos.mostrar');
+    Route::get('/telaCriar', PedidoController::class . '@telaCriar')->name('pedidos.telaCriar');
     Route::post('/criar', PedidoController::class . '@criar')->name('pedidos.criar');
 });
