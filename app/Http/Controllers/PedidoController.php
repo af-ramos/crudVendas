@@ -25,12 +25,11 @@ class PedidoController extends Controller
             $produtos = ProdutoPedido::where('pedido', $p->id)->get()->toArray();
 
             $p->usuario = Usuario::find($p->usuario)->nome;
-            $p->status = StatusPedido::find($p->status)->descricao;
             $p->total = 'R$ ' . number_format(array_sum(array_map(function($item) {
                 return $item['preco_dia'] * $item['quantidade'];
             }, $produtos)), 2, ',', '.');
         }
-
+        
         return view('pedidos.mostrar', [
             'usuario' => $usuario,
             'status' => $status,

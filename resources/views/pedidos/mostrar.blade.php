@@ -21,27 +21,31 @@
                     <tr>
                         <td> {{ $p->usuario }} </td>
                         <td> 
-                            @if($usuario->cargo != 2)
-                                <input type="hidden" name="status" value="{{ $p->status }}">
-                            @endif
                             <select class="form-select" name="status" onchange="alterarStatus('{{ $p->id }}', this)" {{ $usuario->cargo != 2 ? 'disabled' : '' }}>
                                 @foreach ($status as $s)
                                     <option value="{{ $s->id }}" {{$p->status == $s->id ? 'selected' : ''}}> {{ $s->descricao }} </option>
                                 @endforeach
                             </select>
                         </td>
+
                         <td> {{ $p->total }} </td>
                         <td> {{ $p->created_at }} </td>
                         <td> {{ $p->updated_at }} </td>
-                        <td> <a class="bi bi-gear-fill" style="font-size: 1.5rem" href="{{ route ('pedidos.telaAtualizar', ['id' => $p->id])}}"> </a> </td>
-                        <td> 
-							<form action="{{ route('pedidos.remover', ['id' => $p->id]) }}" method="POST">
-								@method('DELETE') 
-								@csrf
+    
+                        @if($usuario->cargo == 2 || $p->status == 1)
+                            <td> <a class="bi bi-gear-fill" style="font-size: 1.5rem" href="{{ route ('pedidos.telaAtualizar', ['id' => $p->id])}}"> </a> </td>
+                            <td> 
+                                <form action="{{ route('pedidos.remover', ['id' => $p->id]) }}" method="POST">
+                                    @method('DELETE') 
+                                    @csrf
 
-								<button type="submit" class="bi bi-x-octagon-fill botao-remover" style="font-size: 1.5rem"> </button> 
-							</form>
-						</td>
+                                    <button type="submit" class="bi bi-x-octagon-fill botao-remover" style="font-size: 1.5rem"> </button> 
+                                </form>
+                            </td>
+                        @else
+                            <td> - </td>
+                            <td> - </td>
+                        @endif
                     </tr>
                 @endforeach
             </tbody>
