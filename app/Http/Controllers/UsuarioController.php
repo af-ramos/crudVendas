@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Redis;
 
 class UsuarioController extends Controller
 {
-    public function login(Request $request) {
+    public function entrar(Request $request) {
         $retornoUsuario = Usuario::where([
             'usuario' => $request->usuario,
             'senha' => $request->senha

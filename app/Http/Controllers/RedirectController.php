@@ -12,7 +12,7 @@ class RedirectController extends Controller
             return view('usuarios.criar');
         }
 
-        return (new UsuarioController())->login($request);
+        return (new UsuarioController())->entrar($request);
     }
 
     public function index(Request $request) {
