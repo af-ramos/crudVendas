@@ -16,7 +16,7 @@ html, body {
     box-shadow: -2px -1px 47px -10px gray
 }
 
-.botao-entrar-cadastrar {
+.botao {
     box-shadow: -2px -1px 47px -10px gray;
     border-radius: 20px;
 }

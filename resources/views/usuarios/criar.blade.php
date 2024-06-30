@@ -27,9 +27,9 @@
             </div>
 
             <div class='d-grid gap-2'>
-                <input type="submit" value="CADASTRAR" class='btn btn-success btn-lg mt-3 botao-entrar-cadastrar'>
-                <input type="reset" value="LIMPAR" class='btn btn-danger btn-lg botao-entrar-cadastrar'>
-                <a href="{{ route('usuarios.entrar') }}" class='btn btn-primary btn-lg botao-entrar-cadastrar'> VOLTAR </a>
+                <input type="submit" value="CADASTRAR" class='btn btn-success btn-lg mt-3 botao'>
+                <input type="reset" value="LIMPAR" class='btn btn-danger btn-lg botao'>
+                <a href="{{ route('usuarios.entrar') }}" class='btn btn-primary btn-lg botao'> VOLTAR </a>
             </div>
         </form>
     </div>

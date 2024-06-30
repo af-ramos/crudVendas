@@ -16,8 +16,8 @@
             </div>
 
             <div class='d-grid gap-2'>
-                <input type="submit" value="ENTRAR" name="acao" class='btn btn-primary btn-lg mt-3 botao-entrar-cadastrar'>
-                <input type="submit" value="CADASTRAR" name="acao" class='btn btn-success btn-lg botao-entrar-cadastrar'>
+                <input type="submit" value="ENTRAR" name="acao" class='btn btn-primary btn-lg mt-3 botao'>
+                <input type="submit" value="CADASTRAR" name="acao" class='btn btn-success btn-lg botao'>
             </div>
         </form>
     </div>
