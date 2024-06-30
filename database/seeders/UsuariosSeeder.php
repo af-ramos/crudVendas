@@ -15,6 +15,17 @@ class UsuariosSeeder extends Seeder
     public function run(): void
     {
         DB::table('usuarios')->insert([
+            'nome' => 'DOUGLAS',
+            'documento' => '98654321234',
+            'telefone' => '12345678910',
+            'usuario' => 'b',
+            'senha' => Hash::make('b'),
+            'cargo' => '1',
+            'created_at' => Carbon::now(), 
+            'updated_at' => Carbon::now()
+        ]);
+
+        DB::table('usuarios')->insert([
             'nome' => 'ARTHUR',
             'documento' => '12345678910',
             'telefone' => '98654321234',
