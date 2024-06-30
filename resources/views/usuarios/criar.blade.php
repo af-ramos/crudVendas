@@ -1,27 +1,36 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-        <title>Projeto HCosta</title>
-    </head>
-    <body>
-        <h2> CADASTRAR </h2>
+@extends('models/entrar_cadastrar')
+@section('content')
+    <div class='caixa-central'>
+        <p class='titulo mb-4'> CADASTRAR <p>
         <form action="{{ route('usuarios.criar') }}" method="POST">
             @csrf
 
-            Nome: <input type="text" name="nome"> <br> <br>
-            Documento: <input type="text" name="documento"> <br> <br>
-            Telefone: <input type="text" name="telefone"> <br> <br>
-            Usuário: <input type="text" name="usuario"> <br> <br>
-            Senha: <input type="password" name="senha"> <br> <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text"> Nome </span>
+                <input type="text" class="form-control" name='nome' placeholder="Digite seu nome...">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text"> Documento </span>
+                <input type="text" class="form-control" name='documento' placeholder="Digite seu documento...">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text"> Telefone </span>
+                <input type="text" class="form-control" name='telefone' placeholder="Digite seu telefone...">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text"> Usuário </span>
+                <input type="text" class="form-control" name='usuario' placeholder="Digite seu usuário...">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text"> Senha </span>
+                <input type="password" class="form-control" name='senha' placeholder="Digite sua senha...">
+            </div>
 
-            <input type="submit" value="Entrar">
-            <input type="reset" value="Limpar">
+            <div class='d-grid gap-2'>
+                <input type="submit" value="CADASTRAR" class='btn btn-success btn-lg mt-3 botao-entrar-cadastrar'>
+                <input type="reset" value="LIMPAR" class='btn btn-danger btn-lg botao-entrar-cadastrar'>
+                <a href="{{ route('usuarios.entrar') }}" class='btn btn-primary btn-lg botao-entrar-cadastrar'> VOLTAR </a>
+            </div>
         </form>
-    </body>
-</html>
+    </div>
+@stop
