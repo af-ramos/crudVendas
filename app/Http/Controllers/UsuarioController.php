@@ -37,9 +37,7 @@ class UsuarioController extends Controller
             'cargo' => 1
         ]);
 
-        if ($retornoUsuario) {
-            return redirect()->route('usuarios.entrar');
-        }
+        return redirect()->route('usuarios.entrar');
     }
 
     public function atualizar(Request $request) {
