@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('/redirecionar', RedirectController::class . '@redirecionar')->name('redirecionar');
 Route::get('/index', RedirectController::class . '@index')->name('index');
 Route::get('/', function () {
-    return view('entrar');
-});
+    return view('usuarios.entrar');
+})->name('usuarios.entrar');
 
 Route::prefix('usuarios')->group(function () {
     Route::get('/mostrar', UsuarioController::class . '@mostrar')->name('usuarios.mostrar');
