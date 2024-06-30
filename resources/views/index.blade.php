@@ -27,7 +27,7 @@
                 <a class="navbar-brand" href="{{ route('index') }}">Projeto de Vendas | HCosta</a>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link {{$tela == 'pedidos' ? 'active' : ''}}" href="#">PEDIDOS</a>
+                        <a class="nav-link {{$tela == 'pedidos' ? 'active' : ''}}" href="{{ route('pedidos.mostrar') }}">PEDIDOS</a>
                         <a class="nav-link {{$tela == 'usuarios' ? 'active' : ''}} {{$usuario->cargo != '2' ? 'disabled' : ''}}" href="{{ route('usuarios.mostrar') }}">USUÁRIOS</a>
                     </div>
                 </div>

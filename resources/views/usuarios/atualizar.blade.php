@@ -24,7 +24,7 @@
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text"> Senha </span>
-                <input type="text" class="form-control" name='senha' placeholder="Digite sua senha..." value="{{ $usuario_edicao->senha }}">
+                <input type="password" class="form-control" name='senha' placeholder="Digite sua senha..." value="{{ $usuario_edicao->senha }}">
             </div>
 
             @if($usuario->cargo != 2)

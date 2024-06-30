@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Pedido;
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
@@ -29,4 +31,9 @@ Route::prefix('usuarios')->group(function () {
     Route::put('/atualizar/{id}', UsuarioController::class . '@atualizar')->name('usuarios.atualizar');
     Route::get('/sair', UsuarioController::class . '@sair')->name('usuarios.sair');
     Route::delete('/remover/{id}', UsuarioController::class . '@remover')->name('usuarios.remover');
+});
+
+Route::prefix('pedidos')->group(function () {
+    Route::get('/telaCriar', PedidoController::class . '@telaCriar')->name('pedidos.telaCriar');
+    Route::get('/mostrar', PedidoController::class . '@mostrar')->name('pedidos.mostrar');
 });
