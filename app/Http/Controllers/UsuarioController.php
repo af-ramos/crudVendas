@@ -16,7 +16,7 @@ class UsuarioController extends Controller
 
         if ($retornoUsuario->count() > 0) {
             $request->session()->put('id', $retornoUsuario->first()->id);
-            return redirect()->route('index', ['usuario' => $retornoUsuario->first(), 'tela' => 'index']);
+            return redirect()->route('index');
         }
     }
 
@@ -51,10 +51,7 @@ class UsuarioController extends Controller
             'cargo' => $request->cargo
         ]);
 
-        return redirect()->route('index', [
-            'usuario' => Usuario::where('id', $request->session()->get('id'))->get()->first(), 
-            'tela' => 'index'
-        ]);
+        return redirect()->route('index');
     }
 
     public function telaAtualizar(Request $request) {
