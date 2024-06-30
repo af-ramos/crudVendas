@@ -1,3 +1,5 @@
+/* GERAL */
+
 html, body {
     width: 100%;
     height: 100%;
@@ -5,6 +7,8 @@ html, body {
     padding: 0px;
     font-family: "Montserrat", sans-serif;
 }
+
+/* TELA DE LOGIN / CADASTRO / ATUALIZAÇÃO */
 
 .caixa-central {
     position: fixed;
@@ -23,5 +27,19 @@ html, body {
 
 .titulo {
     font-size: 35px;
+    text-align: center;
+}
+
+/* DATATABLE */
+
+label[for=dt-search-0] {
+    margin-right: 5px;
+}
+
+label[for=dt-length-0] {
+    margin-left: 8px;
+}
+
+#tabela-usuarios th, #tabela-usuarios td {
     text-align: center;
 }

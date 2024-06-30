@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Cargo;
 use App\Models\Usuario;
+use Carbon\Carbon;
+use DateTime;
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
@@ -68,9 +70,15 @@ class UsuarioController extends Controller
     }
 
     public function mostrar(Request $request) {
+        $usuarios = Usuario::all();
+
+        foreach ($usuarios as $usuario) {
+            $usuario->cargo = Cargo::find($usuario->cargo)->descricao;
+        }
+
         return view('usuarios.mostrar', [
             'usuario' => Usuario::where('id', $request->session()->get('id'))->get()->first(),
-            'usuarios' => Usuario::all(),
+            'usuarios' => $usuarios,
             'tela' => 'usuarios'
         ]);
     }
