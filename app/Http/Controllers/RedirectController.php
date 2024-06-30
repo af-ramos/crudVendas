@@ -9,7 +9,7 @@ class RedirectController extends Controller
 {
     public function redirecionar(Request $request) {
         if ($request->acao == 'CADASTRAR') {
-            return view('usuarios.criar');
+            return redirect()->route('usuarios.telaCriar');
         }
 
         return (new UsuarioController())->entrar($request);

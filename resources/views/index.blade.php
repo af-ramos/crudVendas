@@ -27,7 +27,8 @@
                     </div>
                 </div>
                 {{ $usuario->nome }} &nbsp &nbsp
-                <a class="bi bi-person-fill-gear" style="font-size: 2rem" href="{{ route('usuarios.telaAtualizar', ['id' => $usuario->id]) }}"></a>
+                <a class="bi bi-person-fill-gear" style="font-size: 2rem" href="{{ route('usuarios.telaAtualizar', ['id' => $usuario->id]) }}"></a> &nbsp &nbsp
+                <a class="bi bi-escape" style="font-size: 2rem" href="{{ route('usuarios.sair') }}"></a>
             </div>
         </nav>
 

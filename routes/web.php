@@ -23,7 +23,9 @@ Route::get('/', function () {
 
 Route::prefix('usuarios')->group(function () {
     Route::get('/mostrar', UsuarioController::class . '@mostrar')->name('usuarios.mostrar');
+    Route::get('/telaCriar', UsuarioController::class . '@telaCriar')->name('usuarios.telaCriar');
     Route::post('/criar', UsuarioController::class . '@criar')->name('usuarios.criar');
     Route::get('/telaAtualizar/{id}', UsuarioController::class . '@telaAtualizar')->name('usuarios.telaAtualizar');
     Route::put('/atualizar/{id}', UsuarioController::class . '@atualizar')->name('usuarios.atualizar');
+    Route::get('/sair', UsuarioController::class . '@sair')->name('usuarios.sair');
 });

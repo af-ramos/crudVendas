@@ -16,8 +16,13 @@ class UsuarioController extends Controller
 
         if ($retornoUsuario->count() > 0) {
             $request->session()->put('id', $retornoUsuario->first()->id);
-            return view('index', ['usuario' => $retornoUsuario->first(), 'tela' => 'index']);
+            return redirect()->route('index', ['usuario' => $retornoUsuario->first(), 'tela' => 'index']);
         }
+    }
+
+    public function sair(Request $request) {
+        $request->session()->forget('id');
+        return redirect()->route('usuarios.entrar');
     }
 
     public function criar(Request $request) {
@@ -31,7 +36,7 @@ class UsuarioController extends Controller
         ]);
 
         if ($retornoUsuario) {
-            return view('entrar');
+            return redirect()->route('usuarios.entrar');
         }
     }
 
@@ -46,7 +51,7 @@ class UsuarioController extends Controller
             'cargo' => $request->cargo
         ]);
 
-        return view('index', [
+        return redirect()->route('index', [
             'usuario' => Usuario::where('id', $request->session()->get('id'))->get()->first(), 
             'tela' => 'index'
         ]);
@@ -59,6 +64,10 @@ class UsuarioController extends Controller
             'cargos' => Cargo::all(),
             'tela' => 'atualizar'
         ]);
+    }
+
+    public function telaCriar(Request $request) {
+        return view('usuarios.criar');
     }
 
     public function mostrar(Request $request) {
