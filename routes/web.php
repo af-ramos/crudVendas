@@ -37,4 +37,8 @@ Route::prefix('pedidos')->group(function () {
     Route::get('/mostrar', PedidoController::class . '@mostrar')->name('pedidos.mostrar');
     Route::get('/telaCriar', PedidoController::class . '@telaCriar')->name('pedidos.telaCriar');
     Route::post('/criar', PedidoController::class . '@criar')->name('pedidos.criar');
+    Route::get('/telaAtualizar/{id}', PedidoController::class . '@telaAtualizar')->name('pedidos.telaAtualizar');
+    Route::put('/atualizar/{id}', PedidoController::class . '@atualizar')->name('pedidos.atualizar');
+    Route::delete('/remover/{id}', PedidoController::class . '@remover')->name('pedidos.remover');
+    Route::put('/alterarStatus/{id}', PedidoController::class . '@alterarStatus')->name('pedidos.alterarStatus');
 });

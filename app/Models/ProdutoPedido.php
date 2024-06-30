@@ -16,7 +16,7 @@ class ProdutoPedido extends Model
     protected $fillable = [
         'produto',
         'quantidade',
-        'preco_individual',
+        'preco_dia',
         'pedido'
     ];
 }

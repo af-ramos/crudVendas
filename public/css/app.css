@@ -49,6 +49,7 @@ label[for=dt-length-0] {
 }
 
 #tabela-usuarios th, #tabela-usuarios td, 
-#tabela-produtos th, #tabela-produtos td {
+#tabela-produtos th, #tabela-produtos td,
+#tabela-pedidos th, #tabela-pedidos td {
     text-align: center;
 }
