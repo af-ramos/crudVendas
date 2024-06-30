@@ -26,6 +26,10 @@
                 <span class="input-group-text"> Senha </span>
                 <input type="text" class="form-control" name='senha' placeholder="Digite sua senha..." value="{{ $usuario_edicao->senha }}">
             </div>
+
+            @if($usuario->cargo != 2)
+                <input type="hidden" name="cargo" value="{{ $usuario->cargo }}">
+            @endif
             <select class="form-select mb-3" name="cargo" {{ $usuario->cargo != 2 ? 'disabled' : '' }}>
                 @foreach ($cargos as $cargo)
                     <option value="{{ $cargo->id }}" {{$usuario_edicao->cargo == $cargo->id ? 'selected' : ''}}> {{$cargo->descricao}} </option>
