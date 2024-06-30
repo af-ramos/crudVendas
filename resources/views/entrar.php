@@ -11,7 +11,7 @@
     </head>
     <body>
         <h2> LOGIN </h2>
-        <form action="{{ route('redirect') }}" method="POST">
+        <form action="{{ route('redirecionar') }}" method="POST">
             @csrf
 
             Usuário: <input type="text" name="usuario"> <br> <br>

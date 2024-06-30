@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/redirect', RedirectController::class . '@redirect')->name('redirect');
+Route::post('/redirecionar', RedirectController::class . '@redirecionar')->name('redirecionar');
 Route::get('/index', RedirectController::class . '@index')->name('index');
 Route::get('/', function () {
-    return view('login');
+    return view('entrar');
 });
 
 Route::prefix('usuarios')->group(function () {

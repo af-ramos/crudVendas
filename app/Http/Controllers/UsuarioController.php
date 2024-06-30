@@ -31,7 +31,7 @@ class UsuarioController extends Controller
         ]);
 
         if ($retornoUsuario) {
-            return view('login');
+            return view('entrar');
         }
     }
 
