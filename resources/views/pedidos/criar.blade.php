@@ -23,11 +23,11 @@
                             <td> 
                                 <div class="input-group mb-3">
                                     <span class="input-group-text"> R$ </span>
-                                    <input type="hidden" value="{{ $p->valor }}" name="{{ $p->id }}[valor]">
+                                    <input type="hidden" value="{{ $p->valor }}" name="prod_{{ $p->id }}[valor]">
                                     <input type="text" class="form-control" value="{{$p->valor_formatado}}" readonly>
                                 </div>    
                             </td>
-                            <td> <input type='number' class='form-control' name="{{ $p->id }}[quantidade]" min='0' value='0'> </td>
+                            <td> <input type='number' class='form-control' name="prod_{{ $p->id }}[quantidade]" min='0' value='0'> </td>
                         </tr>
                     @endforeach
                 </tbody>

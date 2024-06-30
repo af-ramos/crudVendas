@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('produto');
             $table->integer('quantidade');
-            $table->double('preco_individual');
+            $table->double('preco_dia');
             $table->unsignedBigInteger('pedido');
             $table->timestamps();
 

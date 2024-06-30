@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pedido;
+use App\Models\ProdutoPedido;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -32,7 +34,27 @@ class PedidoController extends Controller
     }
 
     public function criar(Request $request) {
-        info('teste');
-        info($request->all());
+        info($request);
+
+        $retornoPedido = Pedido::create([
+            'usuario' => $request->session()->get('id'),
+            'status' => 1
+        ]);
+
+        foreach ($request->all() as $chave => $valor) {
+            if(strpos($chave, "prod_") === 0 && $valor['quantidade']) {
+                ProdutoPedido::create([
+                    'produto' => explode('_', $chave)[1],
+                    'quantidade' => $valor['quantidade'],
+                    'preco_dia' => $valor['valor'],
+                    'pedido' => $retornoPedido->id
+                ]);
+            }
+        }
+
+        return view('pedidos.mostrar', [
+            'usuario' => Usuario::where('id', $request->session()->get('id'))->get()->first(),
+            'tela' => 'pedidos'
+        ]);
     }
 }
