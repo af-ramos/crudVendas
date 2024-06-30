@@ -28,7 +28,7 @@ class UsuarioController extends Controller
     }
 
     public function criar(Request $request) {
-        $retornoUsuario = Usuario::create([
+        Usuario::create([
             'nome' => $request->nome,
             'documento' => $request->documento,
             'telefone' => $request->telefone,
@@ -63,7 +63,7 @@ class UsuarioController extends Controller
         ]);
     }
 
-    public function telaCriar(Request $request) {
+    public function telaCriar() {
         return view('usuarios.criar');
     }
 

@@ -14,11 +14,11 @@ class UsuariosSeeder extends Seeder
     public function run(): void
     {
         DB::table('usuarios')->insert([
-            'nome' => 'DOUGLAS',
+            'nome' => 'ARTHUR',
             'documento' => '12345678910',
             'telefone' => '98654321234',
-            'usuario' => 'douglas',
-            'senha' => '12345',
+            'usuario' => 'a',
+            'senha' => 'a',
             'cargo' => '2',
             'created_at' => Carbon::now(), 
             'updated_at' => Carbon::now()
