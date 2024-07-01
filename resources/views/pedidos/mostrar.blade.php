@@ -54,5 +54,15 @@
         <div class='d-grid gap-2'>
             <a href="{{ route('pedidos.telaCriar') }}" class='btn btn-primary btn-lg botao mt-3'> FAZER NOVO PEDIDO </a>
         </div>
+
+        @if($errors->any())
+            <div class="alert alert-danger mb-0 mt-4 pb-0 rounded-4">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li> {{ $error }} </li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </div>
 @stop

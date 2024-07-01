@@ -7,6 +7,8 @@ use App\Models\ProdutoPedido;
 use App\Models\StatusPedido;
 use App\Models\Usuario;
 use Carbon\Carbon;
+use Exception;
+use GuzzleHttp\Exception\ConnectException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -39,8 +41,17 @@ class PedidoController extends Controller
     }
 
     public function telaCriar(Request $request) {
-        $retorno_produtos = json_decode(Http::get(env('API_VENDAS') . '/getItens')->body());
+        try {
+            $retorno_api = Http::get(env('API_VENDAS') . '/getItens');
 
+            if ($retorno_api->failed()) {
+                throw new Exception();
+            }
+        } catch (Exception $e) {
+            return redirect()->route('pedidos.mostrar')->withErrors('Erro de conexão com a API de Produtos');
+        }
+
+        $retorno_produtos = json_decode($retorno_api->body());
         foreach ($retorno_produtos as $produto) {
             $produto->descricao = strtoupper($produto->descricao);
             $produto->valor = str_replace(',', '.', $produto->valor);
@@ -79,7 +90,17 @@ class PedidoController extends Controller
     }
 
     public function telaAtualizar(Request $request) {
-        $retorno_produtos = json_decode(Http::get(env('API_VENDAS') . '/getItens')->body());
+        try {
+            $retorno_api = Http::get(env('API_VENDAS') . '/getItens');
+
+            if ($retorno_api->failed()) {
+                throw new Exception();
+            }
+        } catch (Exception $e) {
+            return redirect()->route('pedidos.mostrar')->withErrors('Erro de conexão com a API de Produtos');
+        }
+
+        $retorno_produtos = json_decode($retorno_api->body());
         $produtos_pedido = ProdutoPedido::where('pedido', $request->route('id'))->get()->toArray();
 
         foreach ($retorno_produtos as $produto) {
