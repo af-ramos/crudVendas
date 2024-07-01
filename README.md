@@ -21,4 +21,5 @@ O projeto foi criado com base no Docker para facilitar o uso e configuração, d
 2) **```./vendor/bin/sail up -d```** para subir o container do projeto.
 3) **```./vendor/bin/sail artisan key:generate```** para gerar a chave de aplicação.
 4) **```./vendor/bin/sail artisan migrate```** para configurar as tabelas e dados.
-5) **```alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'```** para sintetizar o comando ```./vendor/bin/sail``` para apenas ```sail```.
+5) **```./vendor/bin/sail artisan db:seed```** para iniciar as tabelas com dados básicos/teste.
+6) **```alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'```** para sintetizar o comando ```./vendor/bin/sail``` para apenas ```sail```.
