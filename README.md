@@ -25,8 +25,8 @@ O projeto foi criado com base no Docker para facilitar o uso e configuração, d
 
 1) **```docker run --rm -u "$(id -u):$(id -g)" -v "$(pwd):/var/www/html" -w /var/www/html laravelsail/php81-composer:latest composer install --ignore-platform-reqs```** para instalar as dependências do projeto.
 2) Configurar o ```.env``` de forma adequada para rodar no ambiente desejado, com foco nos campos de aplicação (```APP_```), banco de dados (```DB_```) e de conexão com a API (```API_```).
-3) **```./vendor/bin/sail up -d```** para subir o container do projeto.
-4) **```./vendor/bin/sail artisan key:generate```** para gerar a chave de aplicação.
-5) **```./vendor/bin/sail artisan migrate```** para configurar a estrutura das tabelas.
-6) **```./vendor/bin/sail artisan db:seed```** para iniciar as tabelas com dados básicos/teste.
-7) **```alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'```** para sintetizar o comando ```./vendor/bin/sail``` para apenas ```sail```.
+3) **```alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'```** para sintetizar o comando ```./vendor/bin/sail``` para apenas ```sail```.
+4) **```./vendor/bin/sail up -d```** para subir o container do projeto.
+5) **```./vendor/bin/sail artisan key:generate```** para gerar a chave de aplicação.
+6) **```./vendor/bin/sail artisan migrate```** para configurar a estrutura das tabelas.
+7) **```./vendor/bin/sail artisan db:seed```** para iniciar as tabelas com dados básicos/teste.
