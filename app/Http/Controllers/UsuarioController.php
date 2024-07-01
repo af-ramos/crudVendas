@@ -5,11 +5,8 @@ namespace App\Http\Controllers;
 use App\Exceptions\UsuarioException;
 use App\Models\Cargo;
 use App\Models\Usuario;
-use Carbon\Carbon;
-use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 
 class UsuarioController extends Controller
 {
@@ -60,7 +57,7 @@ class UsuarioController extends Controller
             return redirect()->route('usuarios.telaAtualizar', [$request->route('id')])->withErrors($validacao);
         }
 
-        $retorno_usuario = Usuario::find($request->route('id'));
+        $retorno_usuario = Usuario::where('id', $request->route('id'))->first();
         $campos_usuario = [
             'nome' => $request->nome,
             'documento' => $request->documento,
@@ -78,10 +75,10 @@ class UsuarioController extends Controller
     }
 
     public function telaAtualizar(Request $request) {
-        $usuario = Usuario::find($request->session()->get('id'))->first();
+        $usuario = Usuario::where('id', $request->session()->get('id'))->first();
         $usuario->senha = '';
 
-        $usuario_edicao = Usuario::find($request->route('id'))->first();
+        $usuario_edicao = Usuario::where('id', $request->route('id'))->first();
         $usuario_edicao->senha = '';
 
         return view('usuarios.atualizar', [
@@ -100,7 +97,7 @@ class UsuarioController extends Controller
         $usuarios = Usuario::all();
 
         foreach ($usuarios as $usuario) {
-            $usuario->cargo = Cargo::find($usuario->cargo)->descricao;
+            $usuario->cargo = Cargo::where('id', $usuario->cargo)->first()->descricao;
         }
 
         return view('usuarios.mostrar', [

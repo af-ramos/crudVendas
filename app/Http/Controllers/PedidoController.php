@@ -24,7 +24,7 @@ class PedidoController extends Controller
         foreach ($pedidos as $p) {
             $produtos = ProdutoPedido::where('pedido', $p->id)->get()->toArray();
 
-            $p->usuario = Usuario::find($p->usuario)->nome;
+            $p->usuario = Usuario::where('id', $p->usuario)->first()->nome;
             $p->total = 'R$ ' . number_format(array_sum(array_map(function($item) {
                 return $item['preco_dia'] * $item['quantidade'];
             }, $produtos)), 2, ',', '.');
@@ -133,6 +133,6 @@ class PedidoController extends Controller
     }
 
     public function alterarStatus(Request $request) {
-        Pedido::find($request->route('id'))->update(['status' => $request->opcao]);
+        Pedido::where('id', $request->route('id'))->update(['status' => $request->opcao]);
     }
 }
