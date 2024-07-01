@@ -12,7 +12,11 @@ class RedirectController extends Controller
             return redirect()->route('usuarios.telaCriar');
         }
 
-        return (new UsuarioController())->entrar($request);
+        if ((new UsuarioController())->entrar($request)) {
+            return redirect()->route('index');
+        }
+
+        return redirect()->route('usuarios.entrar')->withErrors(['login' => 'Usuário ou senha inválidos']);
     }
 
     public function index(Request $request) {

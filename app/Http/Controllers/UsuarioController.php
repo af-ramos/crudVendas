@@ -18,8 +18,10 @@ class UsuarioController extends Controller
 
         if (!empty($retorno_usuario) && Hash::check($request->senha, $retorno_usuario->senha)) {
             $request->session()->put('id', $retorno_usuario->id);
-            return redirect()->route('index');
+            return true;
         }
+        
+        return false;
     }
 
     public function sair(Request $request) {
