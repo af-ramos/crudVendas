@@ -28,3 +28,4 @@ O projeto foi criado com base no Docker para facilitar o uso e configuração, d
 4) **```./vendor/bin/sail artisan migrate```** para configurar a estrutura das tabelas.
 5) **```./vendor/bin/sail artisan db:seed```** para iniciar as tabelas com dados básicos/teste.
 6) **```alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'```** para sintetizar o comando ```./vendor/bin/sail``` para apenas ```sail```.
+7) Configurar o ```.env``` de forma adequada para rodar no ambiente desejado, com foco nos campos de aplicação (```APP_```), banco de dados (```DB_```) e de conexão com a API (```API_```).
