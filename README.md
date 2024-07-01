@@ -17,7 +17,8 @@ Os seguintes requisitos solicitados foram desenvolvidos:
 - Os administradores tem acesso a todos os usuários, podendo editá-los e removê-los.
 - A lista de usuários é filtrável e ordenável por qualquer campo, com uma paginação dividida em vários valores possívels.
 - Os produtos estão sendo consumidos via API externa, sendo sua rota definida na variável de ambiente ```API_VENDAS```, para fins de testes no Docker, foi utilizada a rota ```host.docker.internal``` para acessar a ```localhost```, sendo necessário ajustar no ```.env```.
-
+- Após executar as __migrations__, dois usuários padrões são criados, com usuário e senha 'a' e 'b', respectivamente.
+  
 ## CONFIGURAÇÃO
 
 O projeto foi criado com base no Docker para facilitar o uso e configuração, dessa forma, para executar, rodar os seguintes comandos:
