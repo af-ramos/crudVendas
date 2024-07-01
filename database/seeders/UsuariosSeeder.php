@@ -18,8 +18,8 @@ class UsuariosSeeder extends Seeder
             'nome' => 'DOUGLAS',
             'documento' => '98654321234',
             'telefone' => '12345678910',
-            'usuario' => 'b',
-            'senha' => Hash::make('b'),
+            'usuario' => 'a',
+            'senha' => Hash::make('a'),
             'cargo' => '1',
             'created_at' => Carbon::now(), 
             'updated_at' => Carbon::now()
@@ -29,8 +29,8 @@ class UsuariosSeeder extends Seeder
             'nome' => 'ARTHUR',
             'documento' => '12345678910',
             'telefone' => '98654321234',
-            'usuario' => 'a',
-            'senha' => Hash::make('a'),
+            'usuario' => 'b',
+            'senha' => Hash::make('b'),
             'cargo' => '2',
             'created_at' => Carbon::now(), 
             'updated_at' => Carbon::now()
