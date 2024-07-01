@@ -16,7 +16,7 @@ class UsuarioController extends Controller
             'usuario' => $request->usuario,
         ])->first();
 
-        if ($retorno_usuario->count() > 0 && Hash::check($request->senha, $retorno_usuario->senha)) {
+        if (!empty($retorno_usuario) && Hash::check($request->senha, $retorno_usuario->senha)) {
             $request->session()->put('id', $retorno_usuario->id);
             return redirect()->route('index');
         }
