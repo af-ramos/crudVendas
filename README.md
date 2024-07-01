@@ -7,8 +7,8 @@ O **projeto de vendas** foi desenvolvido como forma de avaliação para o cargo 
 Foram desenvolvidas uma tela de login e dois CRUDs, responsável pelo gerenciamento de dados de usuários e de pedidos.
 
 Os usuários são divididos em dois grupos:
-- CLIENTE: usuário normal, com acesso limitado.
-- VENDEDOR: usuário com acesso ilimitado e administrativo.
+- **CLIENTE:** usuário normal, com acesso limitado.
+- **VENDEDOR:** usuário com acesso ilimitado e administrativo.
 
 Os seguintes requisitos solicitados foram desenvolvidos:
 - Na tela de pedidos, os clientes poderão ver apenas os seus pedidos.
