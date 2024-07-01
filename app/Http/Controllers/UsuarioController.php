@@ -51,6 +51,7 @@ class UsuarioController extends Controller
 
         $except[] = (!empty($retorno_nome_usuario) && $retorno_nome_usuario->id == $request->route('id')) ? 'usuario' : null;
         $except[] = empty($request->senha) ? 'senha' : null;
+        $except = array_filter($except);
 
         $validacao = UsuarioException::validar($request, $except);
         if ($validacao->fails()) {
