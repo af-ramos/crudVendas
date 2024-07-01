@@ -25,6 +25,16 @@
                 <span class="input-group-text"> Senha </span>
                 <input type="password" class="form-control" name='senha' placeholder="Digite sua senha...">
             </div>
+            
+            @if($errors->any())
+                <div class="alert alert-danger mb-0 pb-0">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li> {{ $error }} </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
             <div class='d-grid gap-2'>
                 <input type="submit" value="CADASTRAR" class='btn btn-success btn-lg mt-3 botao'>

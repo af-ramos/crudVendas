@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\UsuarioException;
 use App\Models\Cargo;
 use App\Models\Usuario;
 use Carbon\Carbon;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UsuarioController extends Controller
 {
@@ -30,6 +32,11 @@ class UsuarioController extends Controller
     }
 
     public function criar(Request $request) {
+        $validacao = UsuarioException::validar($request);
+        if ($validacao->fails()) {
+            return redirect()->route('usuarios.telaCriar')->withErrors($validacao);
+        }
+
         Usuario::create([
             'nome' => $request->nome,
             'documento' => $request->documento,
@@ -43,23 +50,43 @@ class UsuarioController extends Controller
     }
 
     public function atualizar(Request $request) {
-        $retornoUsuario = Usuario::where('id', $request->route('id'));
-        $retornoUsuario->update([
+        $retorno_nome_usuario = Usuario::where('usuario', $request->usuario)->first();
+
+        $except[] = (!empty($retorno_nome_usuario) && $retorno_nome_usuario->id == $request->route('id')) ? 'usuario' : null;
+        $except[] = empty($request->senha) ? 'senha' : null;
+
+        $validacao = UsuarioException::validar($request, $except);
+        if ($validacao->fails()) {
+            return redirect()->route('usuarios.telaAtualizar', [$request->route('id')])->withErrors($validacao);
+        }
+
+        $retorno_usuario = Usuario::find($request->route('id'));
+        $campos_usuario = [
             'nome' => $request->nome,
             'documento' => $request->documento,
             'telefone' => $request->telefone,
             'usuario' => $request->usuario,
-            'senha' => Hash::make($request->senha),
             'cargo' => $request->cargo
-        ]);
+        ];
 
+        if ($request->filled('senha')) {
+            $campos_usuario['senha'] = Hash::make($request->senha);
+        }
+
+        $retorno_usuario->update($campos_usuario);
         return redirect()->route('index');
     }
 
     public function telaAtualizar(Request $request) {
+        $usuario = Usuario::find($request->session()->get('id'))->first();
+        $usuario->senha = '';
+
+        $usuario_edicao = Usuario::find($request->route('id'))->first();
+        $usuario_edicao->senha = '';
+
         return view('usuarios.atualizar', [
-            'usuario' => Usuario::where('id', $request->session()->get('id'))->get()->first(),
-            'usuario_edicao' => Usuario::where('id', $request->route('id'))->get()->first(),
+            'usuario' => $usuario,
+            'usuario_edicao' => $usuario_edicao,
             'cargos' => Cargo::all(),
             'tela' => 'atualizar'
         ]);

@@ -36,6 +36,16 @@
                 @endforeach
             </select>
 
+            @if($errors->any())
+                <div class="alert alert-danger mb-0 pb-0">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li> {{ $error }} </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <div class='d-grid gap-2'>
                 <input type="submit" value="ATUALIZAR" class='btn btn-success btn-lg mt-3 botao'>
             </div>
