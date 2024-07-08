@@ -2,8 +2,6 @@
 
 ## DESCRIÇÃO
 
-O **projeto de vendas** foi desenvolvido como forma de avaliação para o cargo de **Desenvolvedor PHP Júnior** na empresa HCosta.
-
 Foram desenvolvidas uma tela de login e dois CRUDs, responsável pelo gerenciamento de dados de usuários e de pedidos.
 
 Os usuários são divididos em dois grupos:
